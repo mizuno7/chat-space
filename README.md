@@ -23,7 +23,7 @@ Things you may want to cover:
 
 * ...
 
-# Qiita DB設計
+# Chat space DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -31,44 +31,36 @@ Things you may want to cover:
 |password|string|null: false|
 |username|string|null: false|
 ### Association
-- has_many :posts
-- has_many :comments
+- has_many :messages
+- has_many :users_gruops
+- has_many :groups,  through:  :users_groups
 
-## postsテーブル
+
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|text|null: false|
 |text|text|null: false|
+|image|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|gruop_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :comments
-- has_many :posts_tags
-- has_many  :tags,  through:  :posts_tags
+- belongs_to :group
 
-## tagsテーブル
+## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
+|group_name|text|null: false|
 ### Association
-- has_many :posts_tags
-- has_many  :posts,  through:  :posts_tags
+- has_many :messages
+- has_many :users_groups
+- has_many  :users,  through:  :users_groups
 
-## posts_tagsテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|post_id|integer|null: false, foreign_key: true|
-|tag_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :post
-- belongs_to :tag
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :post
 - belongs_to :user
+- belongs_to :group
