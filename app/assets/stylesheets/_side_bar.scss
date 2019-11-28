@@ -41,18 +41,19 @@
   }
 }
 
-.side-contents{
-  padding: 20px 20px;
-  &__message{
-    padding-bottom: 40px;
-    &__title{
-      font-size: 15px;
+.groups {
+  background-color: $side_blue_light;
+  height: calc(100vh - 100px);
+  padding: 0 20px;
+  .group {
+    box-sizing: border-box;
+    padding: 20px 0 40px;
+    &__name {
+      font-size: $side_group_name;
     }
-    &__text{
-      font-size: 11px;
+    &__message {
+      font-size: $side_group_message;
       margin-top: 5px;
-      padding-bottom: 40px;
     }
   }
 }
-
