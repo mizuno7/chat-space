@@ -11,7 +11,8 @@
           - @group.users.each do |user|
             = user.name
       .main-chat__header__edit
-        Edit
+        = link_to edit_group_path(@group) do
+          Edit
 
     = render "main_chat"
 
