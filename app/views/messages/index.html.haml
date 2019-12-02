@@ -4,23 +4,18 @@
   .main-chat
     .main-chat__header
       .main-chat__header__group
-        .main-chat__header__group__user-name
-          Group name
+        .main-chat__header__group__name
+          = @group.name
         .main-chat__header__group__member
-          Member
+          Member : 
+          - @group.users.each do |user|
+            = user.name
       .main-chat__header__edit
         Edit
 
-    .main-chat__message
-      .main-chat__message__box
-        .main-chat__message__box__name
-          mizuno
-        .main-chat__message__box__date
-          2019/11/26
-      .main-chat__message__text
-        This is a first message.
+    = render "main_chat"
 
-      
+    
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :text, class: 'form__message', placeholder: 'type a message'
