@@ -10,7 +10,7 @@
     justify-content: space-between;
     &__group{
       margin-top: 35px;
-      &__user-name{
+      &__name{
         font-size: 20px;
         color: #333333;
       }
@@ -28,11 +28,13 @@
       text-align: center;
     }
   }
-  &__message{
-    height: calc(100vh - 190px - 90px);
+.message{
+  height: calc(100vh - 190px);
+  overflow: scroll;
+  padding: 0px 40px;
+  .main-chat__message{
     background-color: #fafafa;
-    padding: 46px 40px;
-    overflow: scroll;
+    margin-top: 46px;
     &__box{
       display: flex;
       justify-content: flex-start;
@@ -52,6 +54,7 @@
       margin-top: 10px;
     }
   }
+}
 
   .form {
     background-color: #DDDDDD;
